@@ -6,38 +6,21 @@ const Input = ({ error, disabled, helperText, startIcon, endIcon, value, size, r
   const input = useRef(null)
 
   useEffect(() => {
-    if (error === true) {
-      setStyleLabel(prevState => styles.label__error + ' ' + prevState)
-    }
-    if (disabled === true) {
-      input.current.disabled = true
-      setStyleLabel(prevState => styles.label__disabled + ' ' + prevState)
-    }
-    if (startIcon === true) {
-      input.current.style.paddingLeft = '45px'
-    }
-    if (endIcon === true) {
-      input.current.style.paddingRight = '45px'
-    }
-    if (size === 'sm') {
-      input.current.style.height = '40px'
-      input.current.style.width = '200px'
-    }
-    if (size === 'md') {
-      input.current.style.height = '56px'
-      input.current.style.width = '200px'
-    }
-    if (fullWidth === true) {
-      input.current.style.width = '100%'
-    }
-  }, [])
+    error ? setStyleLabel(prevState => styles.label__error + ' ' + prevState) : null // eslint-disable-line
+    disabled ? (input.current.disabled = true, setStyleLabel(prevState => styles.label__disabled + ' ' + prevState)) : null // eslint-disable-line
+    startIcon ? input.current.style.paddingLeft = '45px' : null // eslint-disable-line
+    endIcon ? input.current.style.paddingRight = '45px' : null // eslint-disable-line
+    size == 'sm' ? (input.current.style.height = '40px', input.current.style.width = '200px') : null // eslint-disable-line
+    size == 'md' ? (input.current.style.height = '56px', input.current.style.width = '200px') : null // eslint-disable-line
+    fullWidth ? (input.current.style.width = '100%') : null // eslint-disable-line
+  }, []) // eslint-disable-line
 
   return (
     <>
-      <label className={`${styles.label} ${styleLabel}`} htmlFor='input'><div> Label</div>
+      <label className={`${styles.label} ${styleLabel}`} htmlFor='input'>Label <br />
         {multiline === true ? <textarea className={styles.textarea} rows={row} defaultValue='Placeholder' /> : <input ref={input} id='input' className={styles.input} placeholder={value || 'Placeholder'} type='text' />}
-        {startIcon === true ? <div className={styles.label__iconstart}><span class='material-symbols-outlined'>call</span></div> : ''}
-        {endIcon === true ? <div className={styles.label__iconend}><span class='material-symbols-outlined'>lock</span></div> : ''}
+        {startIcon === true ? <div className={styles.label__iconstart}><span className='material-symbols-outlined'>call</span></div> : ''}
+        {endIcon === true ? <div className={styles.label__iconend}><span className='material-symbols-outlined'>lock</span></div> : ''}
         <div className={styles.label__text}>{helperText !== '' ? helperText : ''}</div>
       </label>
     </>

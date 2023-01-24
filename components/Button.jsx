@@ -5,56 +5,22 @@ const Button = ({ text, variant, disableShadow, disabled, startIcon, endIcon, si
   const [btnStyle, setBtnStyle] = useState('')
   const button = useRef(null)
   useEffect(() => {
-    if (variant === undefined) {
-      setBtnStyle('')
-    }
-    if (variant === 'outline') {
-      setBtnStyle(prevState => styles.btn__outline + ' ' + prevState)
-    }
-    if (variant === 'text') {
-      setBtnStyle(prevState => styles.btn__text + ' ' + prevState)
-    }
-    if (color === 'default') {
-      setBtnStyle('')
-    }
-    if (color === 'primary') {
-      setBtnStyle(prevState => styles.btn__primary + ' ' + prevState)
-    }
-    if (color === 'secondary') {
-      setBtnStyle(prevState => styles.btn__secondary + ' ' + prevState)
-    }
-    if (color === 'danger') {
-      setBtnStyle(prevState => styles.btn__danger + ' ' + prevState)
-    }
-    if (size === 'sm') {
-      setBtnStyle(prevState => styles.btn__sm + ' ' + prevState)
-    }
-    if (size === 'md') {
-      setBtnStyle(prevState => styles.btn__md + ' ' + prevState)
-    }
-    if (size === 'lg') {
-      setBtnStyle(prevState => styles.btn__lg + ' ' + prevState)
-    }
-    if (disableShadow === true) {
-      setBtnStyle(styles.btn__disableShadow)
-    }
-    if (disabled === true) {
-      button.current.disabled = true
-      setBtnStyle(styles.btn__disabled)
-    }
-    if (disabled === true && variant === 'text') {
-      button.current.disabled = true
-      setBtnStyle(`${styles.btn__textdisabled}`)
-    }
-    if (startIcon === 'local_grocery_store') {
-      button.current.innerHTML = `${icon} ${text}`
-      setBtnStyle(styles.btn__store)
-    }
-    if (endIcon === 'local_grocery_store') {
-      button.current.innerHTML = `${text} ${icon}`
-      setBtnStyle(styles.btn__store)
-    }
-  }, [])
+    variant === undefined ? setBtnStyle('') : null // eslint-disable-line
+    variant === 'outline' ? setBtnStyle(prevState => styles.btn__outline + ' ' + prevState) : null // eslint-disable-line
+    variant === 'text' ? setBtnStyle(prevState => styles.btn__text + ' ' + prevState) : null // eslint-disable-line
+    color === 'default' ? setBtnStyle('') : null // eslint-disable-line
+    color === 'primary' ? setBtnStyle(prevState => styles.btn__primary + ' ' + prevState) : null // eslint-disable-line
+    color === 'secondary' ? setBtnStyle(prevState => styles.btn__secondary + ' ' + prevState) : null // eslint-disable-line
+    color === 'danger' ? setBtnStyle(prevState => styles.btn__danger + ' ' + prevState) : null // eslint-disable-line
+    size === 'sm' ? setBtnStyle(prevState => styles.btn__sm + ' ' + prevState) : null // eslint-disable-line
+    size === 'md' ? setBtnStyle(prevState => styles.btn__md + ' ' + prevState) : null // eslint-disable-line
+    size === 'lg' ? setBtnStyle(prevState => styles.btn__lg + ' ' + prevState) : null // eslint-disable-line
+    disableShadow ? setBtnStyle(styles.btn__disableShadow) : null // eslint-disable-line
+    disabled === true ? (button.current.disabled = true, setBtnStyle(styles.btn__disabled)) : null // eslint-disable-line
+    disabled === true && variant === 'text' ? (button.current.disabled = true, setBtnStyle(`${styles.btn__textdisabled}`)) : null // eslint-disable-line
+    startIcon === 'local_grocery_store' ? (button.current.innerHTML = `${icon} ${text}`, setBtnStyle(styles.btn__store)) : null // eslint-disable-line
+    endIcon === 'local_grocery_store' ? (button.current.innerHTML = `${text} ${icon}`, setBtnStyle(styles.btn__store)) : null // eslint-disable-line
+  }, []) // eslint-disable-line
 
   return (
     <>
