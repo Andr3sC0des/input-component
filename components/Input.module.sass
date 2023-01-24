@@ -1,0 +1,69 @@
+.input
+    width: 200px
+    height: 56px
+    border-radius: 8px
+    border: 1px solid #828282
+    padding-left: 12px
+    font-size: 14px
+    font-family: 'Noto Sans JP'
+    font-weight: 500
+    line-height: 20.27px
+    margin-top: 4px
+    outline: none
+
+.label
+    position: relative
+    width: fit-content
+    &:focus-within
+        color: #2962FF
+    &> input
+        &:focus
+            border: 1px solid #2962FF
+    &:hover
+        color: #333333
+        &> input
+            border: 1px solid #333333
+    &__error
+        color: #D32F2F
+        &> div
+            color: #D32F2F
+        &> input
+            border: 1px solid #D32F2F
+        &:focus-within
+            color: #D32F2F
+        &> input
+            &:focus
+                border: 1px solid #D32F2F
+        &:hover
+            color: #333333
+            &> input
+                border: 1px solid #333333     
+    &__disabled  
+        &:hover
+            &> input
+                border: 1px solid transparent
+        &> input
+            background: #E0E0E0
+            border: 1px solid #E0E0E0
+            &:hover
+                border: 1px solid transparent
+    &__text
+        font-size: 10px
+        line-height: 14.48px
+        font-weight: 400
+        font-family: 'Noto Sans JP'
+        color: #828282
+        margin-top: 4px
+    &__iconstart
+        position: absolute
+        top: 50px
+        left: 10px
+    &__iconend
+        position: absolute
+        top: 50px
+        left: 160px
+
+
+
+    
+
