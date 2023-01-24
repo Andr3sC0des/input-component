@@ -30,16 +30,12 @@ const Input = ({ error, disabled, helperText, startIcon, endIcon, value, size, r
     if (fullWidth === true) {
       input.current.style.width = '100%'
     }
-    if (multiline === true) {
-      input.current.style.width = '200px'
-      input.current.style.height = `${row * 75}px`
-    }
   }, [])
 
   return (
     <>
       <label className={`${styles.label} ${styleLabel}`} htmlFor='input'><div> Label</div>
-        <input ref={input} id='input' className={styles.input} placeholder={value || 'Placeholder'} type='text' />
+        {multiline === true ? <textarea className={styles.textarea} rows={row} defaultValue='Placeholder' /> : <input ref={input} id='input' className={styles.input} placeholder={value || 'Placeholder'} type='text' />}
         {startIcon === true ? <div className={styles.label__iconstart}><span class='material-symbols-outlined'>call</span></div> : ''}
         {endIcon === true ? <div className={styles.label__iconend}><span class='material-symbols-outlined'>lock</span></div> : ''}
         <div className={styles.label__text}>{helperText !== '' ? helperText : ''}</div>

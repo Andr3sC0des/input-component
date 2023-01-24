@@ -101,7 +101,7 @@ const Inputs = () => {
           <article className={styles.input}>
             <span className={styles.input__title}>{'<Input multiline row="4" />'}</span>
             <div className={styles.input__component}>
-              <Input multiline row='2' />
+              <Input multiline row='4' />
             </div>
           </article>
 
